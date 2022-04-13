@@ -1,15 +1,10 @@
+import { Props } from "./types";
 import {
   Container,
   MainContentContainer,
   HeaderContainer,
   SideBarContainer,
 } from "./styled-components";
-
-interface Props {
-  Header: JSX.Element;
-  Sidebar: JSX.Element;
-  MainContent: JSX.Element;
-}
 
 const HomepageTemplate = ({ Header, MainContent, Sidebar }: Props) => {
   return (
