@@ -1,10 +1,9 @@
 import { FC } from "react";
 import { Title } from "../../atoms/Title/Title";
-import { Container } from "./styled-components";
+import { Container, Button } from "./styled-components";
 import { Props } from "./types";
 
 export const Card: FC<Props> = ({
-  id,
   name,
   description,
   isRetired,
@@ -12,13 +11,13 @@ export const Card: FC<Props> = ({
   onClick,
 }) => {
   return (
-    //@ts-ignore
-    <Container onClick={onClick} key={id}>
+    <Container onClick={onClick}>
       <Title>{name}</Title>
       <div>{description}</div>
-      <button type="button" onClick={onButtonClick}>
+
+      <Button onClick={onButtonClick}>
         {isRetired ? "unretire" : "retire"}
-      </button>
+      </Button>
     </Container>
   );
 };

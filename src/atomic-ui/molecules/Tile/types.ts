@@ -1,10 +1,9 @@
-import { ScheduleId } from "../../../common/types";
+import { ScheduleId } from "../../../common/types/schedules";
 
 interface Props {
   scheduleId: ScheduleId;
   serverName: string;
   status: string;
-  id: number;
 }
 
 export type { Props };

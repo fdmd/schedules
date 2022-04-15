@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Title } from "../../atomic-ui/atoms/Title/Title";
+import { Title } from "../../atoms/Title/Title";
 import { Container } from "./styled-components";
 
 const Header: FC = ({ children }) => {

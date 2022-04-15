@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./pages/App";
 import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
+import { fetcher } from "./common/services/utils";
 
 const container = document.getElementById("root");
 const root = createRoot(container as HTMLElement);
@@ -13,8 +14,7 @@ root.render(
     <SWRConfig
       value={{
         refreshInterval: 30000,
-        fetcher: (resource, init) =>
-          fetch(resource, init).then((res) => res.json()),
+        fetcher,
       }}
     >
       <App />

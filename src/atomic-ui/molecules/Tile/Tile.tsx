@@ -3,9 +3,9 @@ import { Title } from "../../atoms/Title/Title";
 import { Container } from "./styled-components";
 import { Props } from "./types";
 
-export const Tile: FC<Props> = ({ id, scheduleId, serverName, status }) => {
+export const Tile: FC<Props> = ({ scheduleId, serverName, status }) => {
   return (
-    <Container key={id}>
+    <Container>
       <Title>{serverName}</Title>
       <div>{scheduleId}</div>
       <div>{status}</div>

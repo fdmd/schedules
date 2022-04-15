@@ -1,12 +1,11 @@
-import { MouseEventHandler } from "react";
+import { MouseEvent } from "react";
 
 interface Props {
   name: string;
   description: string;
-  id: number;
   isRetired: boolean;
   onButtonClick: () => void;
-  onClick: (e: Event) => void;
+  onClick: (e: MouseEvent<HTMLElement>) => void;
 }
 
 export type { Props };
