@@ -1,4 +1,6 @@
+import { OnClickEventType } from "../../../common/types/generic";
+
 export interface Props {
-  onClick: () => void;
+  onClick: OnClickEventType;
   className?: string;
 }

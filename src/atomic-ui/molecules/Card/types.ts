@@ -1,11 +1,11 @@
-import { MouseEvent } from "react";
+import { OnClickEventType } from "../../../common/types/generic";
 
 interface Props {
   name: string;
   description: string;
   isRetired: boolean;
-  onButtonClick: () => void;
-  onClick: (e: MouseEvent<HTMLElement>) => void;
+  onButtonClick: OnClickEventType;
+  onClick: OnClickEventType;
 }
 
 export type { Props };

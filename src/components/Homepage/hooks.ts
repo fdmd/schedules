@@ -1,11 +1,11 @@
 import { MouseEvent, useEffect, useMemo, useState } from "react";
 import { ScheduleId, ScheduleLog } from "../../common/types/schedules";
 
-const useFilterSchedule = ({
-  dataScheduleLogs,
-}: {
+interface FilterScheduleProps {
   dataScheduleLogs?: ScheduleLog[];
-}) => {
+}
+
+const useFilterSchedule = ({ dataScheduleLogs }: FilterScheduleProps) => {
   const [selectedSchedule, setSelectedSchedule] = useState<undefined | number>(
     undefined
   );

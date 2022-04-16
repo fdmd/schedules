@@ -2,13 +2,14 @@ import { useSWRConfig } from "swr";
 import { Card } from "../../../atomic-ui/molecules/Card/Card";
 import { Schedules } from "../../../atomic-ui/organisms/Schedules/Schedules";
 import { Schedule } from "../../../common/types/schedules";
-import { onButtonClick } from "./utils";
+
 import { Props } from "./types";
 
 export const SchedulesList = ({
   isLoading,
   schedulesList,
   onCardClick,
+  onButtonClick,
 }: Props) => {
   const { mutate } = useSWRConfig();
 
@@ -28,7 +29,6 @@ export const SchedulesList = ({
             onButtonClick={onButtonClick({
               scheduleItem,
               schedulesList,
-              mutate,
             })}
           />
         );

@@ -9,10 +9,14 @@ import { Header } from "../../atomic-ui/molecules/Header/Header";
 import { useFilterSchedule } from "./hooks";
 import { LogsList } from "./LogsList/LogsList";
 import { SchedulesList } from "./SchedulesList/SchedulesList";
+import { buttonOnClickPrepare } from "./utils";
 
 const Homepage = () => {
-  const { data: dataSchedules, isLoading: isLoadingSchedules } =
-    useSchedulesService<Schedule>(schedulesEndpoint);
+  const {
+    data: dataSchedules,
+    isLoading: isLoadingSchedules,
+    mutate: mutateSchedules,
+  } = useSchedulesService<Schedule>(schedulesEndpoint);
 
   const { data: dataScheduleLogs, isLoading: isLoadingScheduleLogs } =
     useSchedulesService<ScheduleLog>(schedulesLogsEndpoint);
@@ -27,6 +31,7 @@ const Homepage = () => {
           isLoading={isLoadingSchedules}
           schedulesList={dataSchedules}
           onCardClick={onCardClick}
+          onButtonClick={buttonOnClickPrepare({ mutate: mutateSchedules })}
         />
       }
       MainContent={
