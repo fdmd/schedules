@@ -7,19 +7,23 @@ import {
 import { Schedule, ScheduleLog } from "../../common/types/schedules";
 import { Header } from "../../atomic-ui/molecules/Header/Header";
 import { useFilterSchedule } from "./hooks";
-import { LogsList } from "./LogsList/LogsList";
-import { SchedulesList } from "./SchedulesList/SchedulesList";
+import { LogsList } from "../LogsList/LogsList";
+import { SchedulesList } from "../SchedulesList/SchedulesList";
 import { buttonOnClickPrepare } from "./utils";
 
 const Homepage = () => {
   const {
     data: dataSchedules,
     isLoading: isLoadingSchedules,
+    isError: isErrorSchedules,
     mutate: mutateSchedules,
   } = useSchedulesService<Schedule>(schedulesEndpoint);
 
-  const { data: dataScheduleLogs, isLoading: isLoadingScheduleLogs } =
-    useSchedulesService<ScheduleLog>(schedulesLogsEndpoint);
+  const {
+    data: dataScheduleLogs,
+    isLoading: isLoadingScheduleLogs,
+    isError: isErrorScheduleLogs,
+  } = useSchedulesService<ScheduleLog>(schedulesLogsEndpoint);
 
   const { onCardClick, filteredLogs } = useFilterSchedule({ dataScheduleLogs });
 
@@ -28,6 +32,7 @@ const Homepage = () => {
       Header={<Header>Schedule</Header>}
       Sidebar={
         <SchedulesList
+          isError={isErrorSchedules}
           isLoading={isLoadingSchedules}
           schedulesList={dataSchedules}
           onCardClick={onCardClick}
@@ -35,7 +40,11 @@ const Homepage = () => {
         />
       }
       MainContent={
-        <LogsList isLoading={isLoadingScheduleLogs} logs={filteredLogs} />
+        <LogsList
+          isError={isErrorScheduleLogs}
+          isLoading={isLoadingScheduleLogs}
+          logs={filteredLogs}
+        />
       }
     />
   );

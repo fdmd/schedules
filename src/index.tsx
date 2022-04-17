@@ -5,6 +5,7 @@ import App from "./pages/App";
 import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
 import { fetcher } from "./common/services/utils";
+import { pollingInterval } from "./common/services/schedules";
 
 const container = document.getElementById("root");
 const root = createRoot(container as HTMLElement);
@@ -13,7 +14,7 @@ root.render(
   <React.StrictMode>
     <SWRConfig
       value={{
-        refreshInterval: 30000,
+        refreshInterval: pollingInterval,
         fetcher,
       }}
     >

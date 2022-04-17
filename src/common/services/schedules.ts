@@ -33,3 +33,5 @@ export const updateSchedule =
       newSchedule.id === schedule.id ? result : schedule
     );
   };
+
+export const pollingInterval = 15000;

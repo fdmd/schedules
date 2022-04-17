@@ -1,21 +1,22 @@
-import { useSWRConfig } from "swr";
-import { Card } from "../../../atomic-ui/molecules/Card/Card";
-import { Schedules } from "../../../atomic-ui/organisms/Schedules/Schedules";
-import { Schedule } from "../../../common/types/schedules";
-
+import { Card } from "../../atomic-ui/molecules/Card/Card";
+import { Schedules } from "../../atomic-ui/organisms/Schedules/Schedules";
+import { Schedule } from "../../common/types/schedules";
 import { Props } from "./types";
 
 export const SchedulesList = ({
+  isError,
   isLoading,
   schedulesList,
   onCardClick,
   onButtonClick,
 }: Props) => {
-  const { mutate } = useSWRConfig();
-
-  return isLoading ? (
-    <div>loading schedules... </div>
-  ) : (
+  if (isError) {
+    return <div>error retrieving schedules... </div>;
+  }
+  if (isLoading) {
+    return <div>loading schedules... </div>;
+  }
+  return (
     <Schedules>
       {schedulesList?.map((scheduleItem: Schedule) => {
         const { id, description, name, isRetired } = scheduleItem;
