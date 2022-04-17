@@ -1,5 +1,6 @@
 import { MouseEvent, useEffect, useMemo, useState } from "react";
 import { ScheduleId, ScheduleLog } from "../../common/types/schedules";
+import { OnCardClick, OnCardClickProps } from "./types";
 
 interface FilterScheduleProps {
   dataScheduleLogs?: ScheduleLog[];
@@ -38,9 +39,9 @@ const useFilterSchedule = ({ dataScheduleLogs }: FilterScheduleProps) => {
     [selectedSchedule, dataScheduleLogs]
   );
 
-  const onCardClick =
-    ({ id }: { id: ScheduleId }) =>
-    (e: MouseEvent) => {
+  const onCardClick: OnCardClick =
+    ({ id }: OnCardClickProps) =>
+    (e: MouseEvent<HTMLElement>) => {
       setCardClicked(e.currentTarget);
       if ((e.target as HTMLElement).tagName !== "BUTTON") {
         setSelectedSchedule(id);

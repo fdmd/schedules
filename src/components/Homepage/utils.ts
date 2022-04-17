@@ -1,8 +1,12 @@
 import { updateSchedule } from "../../common/services/schedules";
 import { Schedule } from "../../common/types/schedules";
-import { ButtonOnClickPrepareProps, ButtonOnClickProps } from "./types";
+import {
+  ButtonOnClickPrepareProps,
+  ButtonOnClickProps,
+  OnClickPrepare,
+} from "./types";
 
-export const buttonOnClickPrepare =
+export const buttonOnClickPrepare: OnClickPrepare =
   ({ mutate }: ButtonOnClickPrepareProps) =>
   ({ scheduleItem, schedulesList }: ButtonOnClickProps) =>
   () => {
@@ -22,7 +26,5 @@ export const buttonOnClickPrepare =
       revalidate: false,
     };
 
-    const updater = updateSchedule({ newSchedule });
-    // @ts-ignore
-    mutate(updater, options);
+    mutate(updateSchedule({ newSchedule }), options);
   };

@@ -7,7 +7,7 @@ export interface Schedule {
   name: string;
   description: string;
   isRetired: boolean;
-  tasksCount: boolean;
+  tasksCount: number;
   startPoint: Date;
   endPoint: Date;
   dayOfWeek: number;

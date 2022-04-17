@@ -1,6 +1,6 @@
-import { OnClickEventType } from "../../../common/types/generic";
+import { OnClickEventHandler } from "../../../common/types/generic";
 
 export interface Props {
-  onClick: OnClickEventType;
+  onClick: OnClickEventHandler;
   className?: string;
 }

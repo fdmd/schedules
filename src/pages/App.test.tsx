@@ -1,9 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from "@testing-library/react";
+import React from "react";
+import { Homepage } from "../components/Homepage/Homepage";
+import App from "./App";
 
-test('renders learn react link', () => {
+jest.mock("../components/Homepage/Homepage", () => {
+  return {
+    Homepage: jest.fn(),
+  };
+});
+
+test("renders App", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(Homepage).toHaveBeenCalledWith({}, {});
 });

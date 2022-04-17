@@ -27,9 +27,9 @@ export const putSchedule = async (schedule: Schedule): Promise<Schedule> => {
 
 export const updateSchedule =
   ({ newSchedule }: UpdateScheduleProps) =>
-  async (schedules: Schedule[]) => {
+  async (schedules?: Schedule[]) => {
     const result = await putSchedule(newSchedule);
-    return schedules.map((schedule: Schedule) =>
+    return schedules?.map((schedule: Schedule) =>
       newSchedule.id === schedule.id ? result : schedule
     );
   };

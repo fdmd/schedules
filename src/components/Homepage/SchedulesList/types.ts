@@ -1,13 +1,13 @@
-import { OnClickEventType } from "../../../common/types/generic";
+import { OnClickEventHandler } from "../../../common/types/generic";
 import { Schedule, ScheduleId } from "../../../common/types/schedules";
-import { ButtonOnClickProps } from "../types";
+import { ButtonOnClickProps, OnCardClickProps } from "../types";
 
 export interface Props {
   isLoading: boolean;
   schedulesList?: Schedule[];
-  onCardClick: ({ id }: { id: ScheduleId }) => OnClickEventType;
+  onCardClick: ({ id }: OnCardClickProps) => OnClickEventHandler;
   onButtonClick: ({
     scheduleItem,
     schedulesList,
-  }: ButtonOnClickProps) => OnClickEventType;
+  }: ButtonOnClickProps) => OnClickEventHandler;
 }
