@@ -9,6 +9,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${spacing.sm};
+  justify-content: space-between;
 `;
 
 const Button = styled(ButtonAtom)`

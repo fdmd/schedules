@@ -1,14 +1,20 @@
 import styled from "styled-components";
-import { spacing } from "../../static/spacing";
+import { breakpoints, spacing } from "../../static/spacing";
 
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: ${spacing.lg};
+  padding: ${spacing.xl};
   grid-template-areas:
     "hd hd hd hd hd hd hd hd hd hd hd hd"
     "sb sb sb mc mc mc mc mc mc mc mc mc";
-  padding: ${spacing.xl};
+  @media (max-width: ${breakpoints.mobile}) {
+    grid-template-areas:
+      "hd hd hd hd hd hd hd hd hd hd hd hd"
+      "sb sb sb sb sb sb sb sb sb sb sb sb"
+      "mc mc mc mc mc mc mc mc mc mc mc mc";
+  }
 `;
 
 export const SideBarContainer = styled.div`
